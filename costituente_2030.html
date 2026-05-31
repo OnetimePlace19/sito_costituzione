@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dalla Costituente all'Agenda 2030 — La Democrazia Incompiuta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1209;
+    --rust: #B84A2E;
+    --gold: #C89B3C;
+    --sage: #4A7A5C;
+    --slate: #2C3E50;
+    --pale: #EDE8DC;
+    --accent-blue: #1B4F72;
+    --sdg5: #EF2B3A;
+    --sdg8: #A21942;
+    --sdg16: #00689D;
+    --paper: #FAF7F0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(26,18,9,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,155,60,0.3);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 56px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(184,74,46,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 20% 30%, rgba(200,155,60,0.08) 0%, transparent 50%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(245,240,232,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(245,240,232,0.03) 40px);
+  }
+  .hero-noise {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;
+  }
+  .hero-label {
+    display: inline-block;
+    border: 1px solid rgba(200,155,60,0.5);
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rust);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.65);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .hero-scroll {
+    display: flex; align-items: center; gap: 1rem;
+    color: rgba(245,240,232,0.4);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .scroll-line { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+  .hero-year {
+    position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(6rem, 15vw, 14rem);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200,155,60,0.15);
+    line-height: 1;
+    user-select: none;
+    z-index: 1;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--rust);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── SECTION 1: COSTITUENTE ─── */
+  #costituente {
+    background: var(--cream);
+    border-top: 4px solid var(--rust);
+  }
+
+  .s1-intro {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start;
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 768px) { .s1-intro { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .intro-text p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(26,18,9,0.8);
+    margin-bottom: 1.2rem;
+  }
+  .stat-box {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .stat-box::before {
+    content: '';
+    position: absolute; top: -6px; left: -6px;
+    right: 6px; bottom: 6px;
+    border: 1px solid var(--gold);
+    opacity: 0.4;
+  }
+  .stat-item { margin-bottom: 1.8rem; }
+  .stat-item:last-child { margin-bottom: 0; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-desc {
+    font-size: 0.82rem;
+    color: rgba(245,240,232,0.65);
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
+  .stat-divider { height: 1px; background: rgba(245,240,232,0.1); margin: 1.5rem 0; }
+
+  /* TIMELINE */
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .timeline-title::after {
+    content: ''; flex: 1; height: 1px; background: rgba(26,18,9,0.15);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--rust), var(--gold), var(--sage));
+  }
+
+  .tl-item {
+    position: relative;
+    padding: 0 0 2.5rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-dot {
+    position: absolute; left: -9px; top: 6px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--rust);
+    transition: all 0.3s;
+    z-index: 2;
+  }
+  .tl-item:hover .tl-dot,
+  .tl-item.active .tl-dot {
+    background: var(--rust);
+    transform: scale(1.3);
+    box-shadow: 0 0 0 4px rgba(184,74,46,0.2);
+  }
+
+  .tl-date {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .tl-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+  .tl-body {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(26,18,9,0.65);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s;
+    opacity: 0;
+  }
+  .tl-item.active .tl-body {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  .costituzione-art {
+    margin-top: 4rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  @media (max-width: 768px) { .costituzione-art { grid-template-columns: 1fr; } }
+
+  .art-card {
+    background: var(--ink);
+    padding: 2rem;
+    border-left: 3px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .art-card::after {
+    content: attr(data-art);
+    position: absolute; right: 1rem; bottom: -0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(200,155,60,0.08);
+    line-height: 1;
+  }
+  .art-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .art-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.85);
+    line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+
+  /* ─── SECTION 2: NILDE IOTTI ─── */
+  #nilde {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .nilde-header { margin-bottom: 4rem; }
+  .nilde-header .section-title { color: var(--cream); }
+
+  .nilde-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
+  }
+  @media (max-width: 768px) { .nilde-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+  .nilde-portrait {
+    position: relative;
+  }
+  .portrait-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, rgba(184,74,46,0.15), rgba(200,155,60,0.1));
+    border: 1px solid rgba(200,155,60,0.25);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(200,155,60,0.25);
+  }
+  .portrait-overlay {
+    position: absolute; inset: 0;
+    background: 
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(200,155,60,0.03) 2px, rgba(200,155,60,0.03) 4px);
+  }
+  .portrait-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(26,18,9,0.85);
+    padding: 1rem 1.2rem;
+    border-top: 1px solid rgba(200,155,60,0.3);
+  }
+  .portrait-caption p {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.7);
+  }
+  .portrait-caption strong { color: var(--gold); }
+
+  .nilde-dates {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;
+  }
+  .date-card {
+    background: rgba(245,240,232,0.05);
+    border: 1px solid rgba(245,240,232,0.1);
+    padding: 1rem;
+    text-align: center;
+  }
+  .date-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .date-label { font-size: 0.72rem; color: rgba(245,240,232,0.5); margin-top: 0.2rem; }
+
+  .nilde-content {}
+  .nilde-bio {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 2.5rem;
+  }
+
+  /* QUOTES CAROUSEL */
+  .quotes-section { margin-bottom: 3rem; }
+  .quotes-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .quote-carousel {
+    position: relative;
+    min-height: 160px;
+  }
+  .quote-slide {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  .quote-slide.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--cream);
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--rust);
+    margin-bottom: 1rem;
+  }
+  .quote-context {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.5);
+    padding-left: 1.5rem;
+  }
+
+  .quote-nav { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+  .quote-dot {
+    width: 24px; height: 3px;
+    background: rgba(245,240,232,0.2);
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+  }
+  .quote-dot.active { background: var(--gold); }
+
+  /* ANALISI RETORICA */
+  .retorica {
+    background: rgba(245,240,232,0.04);
+    border: 1px solid rgba(245,240,232,0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .retorica h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .retorica-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  @media (max-width: 480px) { .retorica-grid { grid-template-columns: 1fr; } }
+  .ret-item {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+  }
+  .ret-icon {
+    width: 8px; height: 8px;
+    background: var(--rust);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .ret-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(245,240,232,0.65);
+  }
+  .ret-text strong { color: var(--cream); font-weight: 500; }
+
+  /* VIDEO ARCHIVIO */
+  .video-archive { margin-top: 3rem; }
+  .archive-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .archive-title::after { content: ''; flex: 1; height: 1px; background: rgba(245,240,232,0.1); }
+
+  .video-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  }
+  @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
+
+  .video-card {
+    background: rgba(245,240,232,0.05);
+    border: 1px solid rgba(245,240,232,0.08);
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-card:hover {
+    background: rgba(245,240,232,0.09);
+    border-color: rgba(200,155,60,0.4);
+    transform: translateY(-2px);
+  }
+  .video-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(184,74,46,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+  .play-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--rust);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-btn::after {
+    content: '';
+    border-left: 12px solid white;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    margin-left: 3px;
+  }
+  .video-label {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.5;
+  }
+  .video-year {
+    font-size: 0.68rem;
+    color: var(--gold);
+    margin-top: 0.3rem;
+  }
+
+  /* ─── SECTION 3: AGENDA 2030 ─── */
+  #agenda {
+    background: var(--pale);
+  }
+
+  .sdg-intro {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+  .sdg-intro p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(26,18,9,0.75);
+  }
+
+  .sdg-tabs {
+    display: flex; gap: 0; margin-bottom: 3rem;
+    border-bottom: 2px solid rgba(26,18,9,0.1);
+  }
+  .sdg-tab {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: rgba(26,18,9,0.45);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .sdg-tab[data-sdg="5"].active { color: var(--sdg5); border-bottom-color: var(--sdg5); }
+  .sdg-tab[data-sdg="8"].active { color: var(--sdg8); border-bottom-color: var(--sdg8); }
+  .sdg-tab[data-sdg="16"].active { color: var(--sdg16); border-bottom-color: var(--sdg16); }
+  .sdg-tab:hover { color: var(--ink); }
+
+  .sdg-panel { display: none; }
+  .sdg-panel.active { display: block; animation: fadeIn 0.4s ease; }
+
+  .sdg-panel-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  }
+  @media (max-width: 768px) { .sdg-panel-inner { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .sdg-side { }
+
+  .sdg-badge {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  [data-sdg="5"] .sdg-badge { background: var(--sdg5); }
+  [data-sdg="8"] .sdg-badge { background: var(--sdg8); }
+  [data-sdg="16"] .sdg-badge { background: var(--sdg16); }
+
+  .sdg-badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .sdg-bridge {
+    background: white;
+    border-left: 3px solid;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  [data-sdg="5"] .sdg-bridge { border-color: var(--sdg5); }
+  [data-sdg="8"] .sdg-bridge { border-color: var(--sdg8); }
+  [data-sdg="16"] .sdg-bridge { border-color: var(--sdg16); }
+
+  .bridge-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .bridge-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(26,18,9,0.8);
+  }
+
+  .sdg-today h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+
+  .challenge-list { list-style: none; }
+  .challenge-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(26,18,9,0.08);
+  }
+  .challenge-item:last-child { border-bottom: none; }
+  .ch-marker {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  [data-sdg="5"] .ch-marker { background: var(--sdg5); }
+  [data-sdg="8"] .ch-marker { background: var(--sdg8); }
+  [data-sdg="16"] .ch-marker { background: var(--sdg16); }
+
+  .ch-content {}
+  .ch-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .ch-desc {
+    font-size: 0.82rem;
+    color: rgba(26,18,9,0.6);
+    line-height: 1.55;
+  }
+
+  /* DATA VIZ INLINE */
+  .data-viz-box {
+    background: white;
+    border: 1px solid rgba(26,18,9,0.08);
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .dvb-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(26,18,9,0.45);
+    margin-bottom: 1.2rem;
+  }
+
+  .bar-chart { }
+  .bar-item { margin-bottom: 0.9rem; }
+  .bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: rgba(26,18,9,0.7);
+  }
+  .bar-label span:last-child { font-weight: 500; color: var(--ink); }
+  .bar-track {
+    height: 8px;
+    background: rgba(26,18,9,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 0;
+  }
+  .bar-fill.animated { width: var(--w); }
+
+  /* SDG 5 bars */
+  [data-sdg="5"] .bar-fill { background: var(--sdg5); }
+  [data-sdg="8"] .bar-fill { background: var(--sdg8); }
+  [data-sdg="16"] .bar-fill { background: var(--sdg16); }
+
+  /* ─── SECTION 4: CONCLUSIONE ─── */
+  #conclusione {
+    background: var(--ink);
+    color: var(--cream);
+    text-align: center;
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #conclusione::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,155,60,0.05) 0%, transparent 70%);
+  }
+  .concl-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+
+  .concl-ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    opacity: 0.4;
+  }
+  .orn-line { flex: 1; max-width: 80px; height: 1px; background: var(--gold); }
+  .orn-diamond {
+    width: 10px; height: 10px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .concl-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .concl-attr {
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+  .concl-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.65);
+    font-weight: 300;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: rgba(26,18,9,0.98);
+    border-top: 1px solid rgba(200,155,60,0.15);
+    padding: 2rem;
+    text-align: center;
+  }
+  .footer-text {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.3);
+    line-height: 1.6;
+  }
+  .footer-text strong { color: rgba(245,240,232,0.5); }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    position: fixed; top: 56px; left: 0; right: 0; z-index: 999;
+    height: 2px;
+    background: rgba(200,155,60,0.15);
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--rust), var(--gold));
+    width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* Modal overlay for video */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.92);
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--ink);
+    border: 1px solid rgba(200,155,60,0.25);
+    padding: 2.5rem;
+    max-width: 600px; width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none;
+    color: rgba(245,240,232,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .modal-year { font-size: 0.78rem; color: var(--gold); margin-bottom: 1.2rem; }
+  .modal-desc {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.7);
+  }
+  .modal-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--rust);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rust);
+    padding-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Costituente · Iotti · 2030</div>
+  <ul class="nav-links">
+    <li><a href="#costituente">Costituente</a></li>
+    <li><a href="#nilde">Nilde Iotti</a></li>
+    <li><a href="#agenda">Agenda 2030</a></li>
+    <li><a href="#conclusione">Epilogo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-year">1948</div>
+  <div class="hero-content">
+    <div class="hero-label">Lavoro Multimediale · Storia e Attualità</div>
+    <h1>
+      Dalla Costituente
+      <em>all'Agenda 2030</em>
+    </h1>
+    <p class="hero-sub">
+      Il percorso che unisce la nascita della Repubblica Italiana, la figura di Nilde Iotti e le sfide globali del nostro tempo. Democrazia, parità, lavoro dignitoso.
+    </p>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      <span>Scorrere per esplorare</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: COSTITUENTE -->
+<section id="costituente">
+  <div class="container">
+    <div class="section-label">Sezione I</div>
+    <h2 class="section-title">L'Assemblea Costituente<br><em style="font-style:italic;color:var(--rust);">Il Contesto Storico</em></h2>
+
+    <div class="s1-intro fade-up">
+      <div class="intro-text">
+        <p>Il 2 giugno 1946 l'Italia compie una scelta irreversibile: con il referendum istituzionale, il popolo italiano abolisce la monarchia e sceglie la Repubblica. È la prima volta che anche le donne votano: il suffragio universale diventa realtà dopo decenni di esclusione.</p>
+        <p>Nasce l'Assemblea Costituente, formata da 556 deputati — tra cui, per la prima volta nella storia d'Italia, <strong>21 donne</strong>. Insieme, in meno di due anni, redigeranno la Carta che ancora oggi regge la democrazia italiana.</p>
+        <p>La Costituzione entrata in vigore il 1° gennaio 1948 non è semplicemente un testo giuridico: è il patto fondativo di una nazione che si rialza dal fascismo e dalla guerra, con una promessa scritta di libertà, uguaglianza e dignità.</p>
+      </div>
+      <div class="stat-box">
+        <div class="stat-item">
+          <div class="stat-num">556</div>
+          <div class="stat-desc">Deputati eletti all'Assemblea Costituente</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">21</div>
+          <div class="stat-desc">Donne elette — le "Madri Costituenti"</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">139</div>
+          <div class="stat-desc">Articoli della Costituzione Italiana</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">89,1%</div>
+          <div class="stat-desc">Affluenza al voto del 2 giugno 1946</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="fade-up">
+      <div class="timeline-title">Timeline Interattiva — 1946 · 1948</div>
+      <div class="timeline">
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2 Giugno 1946</div>
+          <div class="tl-head">Referendum Istituzionale e Voto delle Donne</div>
+          <div class="tl-body">Per la prima volta nella storia italiana, le donne esercitano il diritto di voto. Il 54,3% dei votanti sceglie la Repubblica contro la Monarchia. È la nascita della prima democrazia repubblicana italiana. Vengono contestualmente eletti i 556 componenti dell'Assemblea Costituente, tra cui 21 donne provenienti da diversi schieramenti politici.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">25 Giugno 1946</div>
+          <div class="tl-head">Prima riunione dell'Assemblea Costituente</div>
+          <div class="tl-body">L'Assemblea Costituente si insedia a Montecitorio. Presidente provvisorio è il liberale Vittorio Emanuele Orlando. In questa prima seduta emerge già la tensione tra le tre grandi forze politiche: Democrazia Cristiana, Partito Socialista e Partito Comunista Italiano, che insieme raccolgono oltre l'80% dei voti.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">28 Giugno 1946</div>
+          <div class="tl-head">Elezione di Enrico De Nicola Capo Provvisorio</div>
+          <div class="tl-body">L'Assemblea elegge Enrico De Nicola come Capo Provvisorio dello Stato, figura di garanzia nell'esercizio di transizione istituzionale. Questa scelta simboleggia la volontà di unitarietà nazionale oltre le divisioni politiche della guerra e del fascismo.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Luglio 1946</div>
+          <div class="tl-head">Costituzione della Commissione dei 75</div>
+          <div class="tl-body">L'Assemblea istituisce la "Commissione per la Costituzione", composta da 75 deputati rappresentativi di tutti i partiti. È articolata in tre sottocommissioni: Diritti e doveri dei cittadini; Ordinamento costituzionale della Repubblica; Diritti e doveri economico-sociali. Nilde Iotti fa parte della prima sottocommissione.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">Autunno 1946 – Primavera 1947</div>
+          <div class="tl-head">I Lavori della Commissione dei 75</div>
+          <div class="tl-body">Mesi di dibattiti intensi, mediazioni e confronti ideologici profondi. Si discutono gli articoli fondamentali: il riconoscimento della persona, la famiglia, il lavoro, la libertà di culto, i diritti politici. Le donne costituenti portano in aula istanze fino ad allora ignorate dalla politica: la parità salariale, la tutela della maternità, il riconoscimento della donna nella famiglia non come subordinata ma come persona.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">22 Dicembre 1947</div>
+          <div class="tl-head">Approvazione della Costituzione</div>
+          <div class="tl-body">L'Assemblea Costituente approva la Costituzione della Repubblica Italiana con 453 voti favorevoli e 62 contrari. È un momento di commozione collettiva. Il presidente Terracini dichiara: "La Costituzione della Repubblica Italiana è approvata." Segue una lunga standing ovation nell'aula di Montecitorio.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">1° Gennaio 1948</div>
+          <div class="tl-head">Entrata in vigore della Costituzione</div>
+          <div class="tl-body">La Costituzione entra ufficialmente in vigore. I 139 articoli, i 18 disposizioni transitorie e finali definiscono i principi fondamentali della Repubblica: la sovranità popolare, il lavoro come fondamento, l'uguaglianza formale e sostanziale, le libertà fondamentali. Nasce la Repubblica democratica italiana nella sua forma compiuta.</div>
+        </div>
+
+        <div class="tl-item" onclick="toggleTimeline(this)">
+          <div class="tl-dot"></div>
+          <div class="tl-date">18 Aprile 1948</div>
+          <div class="tl-head">Prime Elezioni della Repubblica</div>
+          <div class="tl-body">Si svolgono le prime elezioni politiche della Repubblica Italiana, le prime in cui la Costituzione è pienamente in vigore. La Democrazia Cristiana ottiene la maggioranza assoluta con il 48,5% dei voti. Con questa tornata elettorale, la nuova architettura costituzionale viene messa alla prova del confronto democratico.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARTICOLI -->
+    <div class="costituzione-art fade-up">
+      <div class="art-card" data-art="1">
+        <div class="art-num">Articolo 1</div>
+        <div class="art-text">«L'Italia è una Repubblica democratica, fondata sul lavoro. La sovranità appartiene al popolo, che la esercita nelle forme e nei limiti della Costituzione.»</div>
+      </div>
+      <div class="art-card" data-art="3">
+        <div class="art-num">Articolo 3</div>
+        <div class="art-text">«Tutti i cittadini hanno pari dignità sociale e sono eguali davanti alla legge, senza distinzione di sesso, di razza, di lingua, di religione, di opinioni politiche...»</div>
+      </div>
+      <div class="art-card" data-art="37">
+        <div class="art-num">Articolo 37</div>
+        <div class="art-text">«La donna lavoratrice ha gli stessi diritti e, a parità di lavoro, le stesse retribuzioni che spettano al lavoratore...»</div>
+      </div>
+      <div class="art-card" data-art="29">
+        <div class="art-num">Articolo 29</div>
+        <div class="art-text">«La Repubblica riconosce i diritti della famiglia come società naturale fondata sul matrimonio. Il matrimonio è ordinato sull'eguaglianza morale e giuridica dei coniugi...»</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: NILDE IOTTI -->
+<section id="nilde">
+  <div class="container">
+    <div class="nilde-header fade-up">
+      <div class="section-label" style="color:var(--gold)">Sezione II</div>
+      <h2 class="section-title">Nilde Iotti<br><em style="font-style:italic;color:var(--rust);">La Madre Costituente</em></h2>
+    </div>
+
+    <div class="nilde-grid">
+      <div class="nilde-portrait fade-up">
+        <div class="portrait-frame">
+          <div class="portrait-initials">N·I</div>
+          <div class="portrait-overlay"></div>
+          <div class="portrait-caption">
+            <p><strong>Leonilde "Nilde" Iotti</strong></p>
+            <p>Reggio Emilia, 1920 — Roma, 1999</p>
+          </div>
+        </div>
+        <div class="nilde-dates">
+          <div class="date-card">
+            <div class="date-year">1946</div>
+            <div class="date-label">Eletta alla Costituente</div>
+          </div>
+          <div class="date-card">
+            <div class="date-year">1979</div>
+            <div class="date-label">Prima donna Presidente della Camera</div>
+          </div>
+          <div class="date-card">
+            <div class="date-year">1992</div>
+            <div class="date-label">Fine mandato — 13 anni alla Camera</div>
+          </div>
+          <div class="date-card">
+            <div class="date-year">1999</div>
+            <div class="date-label">Scomparsa. Candidata al Quirinale</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nilde-content fade-up">
+        <p class="nilde-bio">Nata a Reggio Emilia nel 1920, Leonilde Iotti — per tutti Nilde — cresce in una famiglia operaia di fede socialista. Si laurea in Lettere alla Cattolica di Milano, si avvicina alla Resistenza e al Partito Comunista. A 26 anni è tra le 21 donne elette all'Assemblea Costituente.</p>
+        <p class="nilde-bio" style="margin-top:-1rem">All'interno della <strong style="color:var(--cream)">Commissione dei 75</strong>, si distingue per il lavoro sugli articoli riguardanti la famiglia e il lavoro femminile. Non cede alla retorica, non fa concessioni all'emozione: argomenta, propone, media. Il suo contributo agli Articoli 29 e 37 rappresenta una svolta storica nel riconoscimento della donna come soggetto giuridico autonomo.</p>
+
+        <!-- CITAZIONI -->
+        <div class="quotes-section">
+          <div class="quotes-label">■ Discorsi Parlamentari — Estratti</div>
+          <div class="quote-carousel" id="quoteCarousel">
+            <div class="quote-slide active">
+              <div class="quote-text">«Noi vogliamo che la donna sia tutelata non come madre soltanto, ma come persona, come cittadina, come lavoratrice che ha il diritto di esistere nella vita pubblica del Paese.»</div>
+              <div class="quote-context">Assemblea Costituente, 1947 — Dibattito sull'Art. 37</div>
+            </div>
+            <div class="quote-slide">
+              <div class="quote-text">«La parità giuridica tra i coniugi non è una concessione all'utopia: è il riconoscimento di una realtà che le donne italiane hanno dimostrato durante la Resistenza, nei campi, nelle fabbriche.»</div>
+              <div class="quote-context">Commissione dei 75, 1946 — Discussione sull'Art. 29</div>
+            </div>
+            <div class="quote-slide">
+              <div class="quote-text">«Una democrazia che esclude le donne dalla magistratura, dai ruoli decisionali, dalla vita istituzionale è una democrazia monca. Non possiamo consentirlo.»</div>
+              <div class="quote-context">Camera dei Deputati, 1963 — Accesso delle donne alla Magistratura</div>
+            </div>
+            <div class="quote-slide">
+              <div class="quote-text">«La Costituzione non è un documento del passato. È un progetto sempre aperto, un impegno che ogni generazione deve rinnovare con coraggio e coerenza.»</div>
+              <div class="quote-context">Discorso alla Camera, 1985 — Anniversario della Costituzione</div>
+            </div>
+          </div>
+          <div class="quote-nav" id="quoteNav">
+            <button class="quote-dot active" onclick="goToQuote(0)"></button>
+            <button class="quote-dot" onclick="goToQuote(1)"></button>
+            <button class="quote-dot" onclick="goToQuote(2)"></button>
+            <button class="quote-dot" onclick="goToQuote(3)"></button>
+          </div>
+        </div>
+
+        <!-- ANALISI RETORICA -->
+        <div class="retorica">
+          <h3>⊞ Analisi Retorico-Linguistica dell'Oratoria di Nilde Iotti</h3>
+          <div class="retorica-grid">
+            <div class="ret-item">
+              <div class="ret-icon"></div>
+              <div class="ret-text"><strong>Chiarezza argomentativa:</strong> costruisce ragionamenti a catena, senza salti logici. Ogni affermazione è sostenuta da un dato, un precedente, un principio.</div>
+            </div>
+            <div class="ret-item">
+              <div class="ret-icon"></div>
+              <div class="ret-text"><strong>Assenza di retorica ornamentale:</strong> nessun appello emotivo gratuito. La forza sta nella precisione del linguaggio giuridico e nella fermezza del tono.</div>
+            </div>
+            <div class="ret-item">
+              <div class="ret-icon"></div>
+              <div class="ret-text"><strong>Uso del noi collettivo:</strong> parla sempre a nome di una collettività — le donne, i lavoratori, i cittadini — mai in chiave personale o vittimistica.</div>
+            </div>
+            <div class="ret-item">
+              <div class="ret-icon"></div>
+              <div class="ret-text"><strong>Mediazione senza cedimento:</strong> accetta il compromesso senza snaturare il principio. Sa distinguere tra negoziazione tattica e rinuncia sostanziale.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARCHIVIO VIDEO -->
+        <div class="video-archive">
+          <div class="archive-title">Archivio Digitale — Docu-film e Testimonianze</div>
+          <div class="video-grid">
+            <div class="video-card" onclick="openModal('storia')">
+              <div class="video-thumb"><div class="play-btn"></div></div>
+              <div class="video-label">«Storia di Nilde» — Docu-film RAI</div>
+              <div class="video-year">Regia: Caterina Taricano · 2018</div>
+            </div>
+            <div class="video-card" onclick="openModal('discorso')">
+              <div class="video-thumb"><div class="play-btn"></div></div>
+              <div class="video-label">Discorso Insediamento — Prima Presidente Camera</div>
+              <div class="video-year">20 giugno 1979</div>
+            </div>
+            <div class="video-card" onclick="openModal('intervista')">
+              <div class="video-thumb"><div class="play-btn"></div></div>
+              <div class="video-label">Intervista RAI — Ricordi della Costituente</div>
+              <div class="video-year">1988 — Archivio RAI Teche</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: AGENDA 2030 -->
+<section id="agenda">
+  <div class="container">
+    <div class="section-label">Sezione III</div>
+    <h2 class="section-title" style="margin-bottom:1.5rem">Il Ponte con l'Attualità<br><em style="font-style:italic;color:var(--rust);">L'Agenda 2030</em></h2>
+
+    <div class="sdg-intro fade-up">
+      <p>Le battaglie del 1946 non appartengono solo alla storia. Gli articoli conquistati dalle Madri Costituenti — la parità salariale, la dignità nel lavoro, l'uguaglianza di fronte alla legge — sono ancora promesse incompiute. L'Agenda 2030 delle Nazioni Unite li riprende con il linguaggio del presente.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="sdg-tabs">
+      <button class="sdg-tab active" data-sdg="5" onclick="switchSDG(5)">⊕ Obiettivo 5 — Parità di Genere</button>
+      <button class="sdg-tab" data-sdg="8" onclick="switchSDG(8)">⊕ Obiettivo 8 — Lavoro Dignitoso</button>
+      <button class="sdg-tab" data-sdg="16" onclick="switchSDG(16)">⊕ Obiettivo 16 — Pace e Istituzioni</button>
+    </div>
+
+    <!-- PANEL SDG 5 -->
+    <div class="sdg-panel active" data-sdg="5">
+      <div class="sdg-panel-inner fade-up">
+        <div class="sdg-side">
+          <div class="sdg-badge"><span class="sdg-badge-num">5</span> Parità di Genere</div>
+          <div class="sdg-bridge">
+            <div class="bridge-label">◆ Il Legame Storico</div>
+            <div class="bridge-text">Nilde Iotti ha combattuto per l'accesso delle donne alla Magistratura — allora vietato — e per il riconoscimento della dignità della donna nella famiglia e nel lavoro. L'Art. 37 e l'Art. 29 sono le sue vittorie concrete. Ma la strada è ancora lunga: l'uguaglianza formale scritta nella Costituzione non si è trasformata automaticamente in uguaglianza sostanziale.</div>
+          </div>
+          <div class="sdg-today">
+            <h3>Le Sfide Oggi</h3>
+            <ul class="challenge-list">
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Gender Pay Gap</div>
+                  <div class="ch-desc">In Italia le donne guadagnano in media il 16% in meno degli uomini a parità di mansione. In Europa il divario medio è del 13% (Eurostat 2024).</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Scarsa rappresentanza in STEM e leadership</div>
+                  <div class="ch-desc">Solo il 19% dei CDA delle maggiori aziende tech italiane è composto da donne. Nei ruoli di vertice nelle università scientifiche, la percentuale scende al 22%.</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Violenza di genere</div>
+                  <div class="ch-desc">In Italia ogni anno si contano oltre 100 femminicidi. Il Piano Nazionale contro la violenza di genere 2021-2023 mostra progressi ma lacune strutturali persistenti.</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="sdg-side">
+          <div class="data-viz-box">
+            <div class="dvb-title">Presenza femminile nei ruoli chiave — Italia 2024</div>
+            <div class="bar-chart">
+              <div class="bar-item">
+                <div class="bar-label"><span>Parlamento italiano</span><span>35%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:35%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Presidenti di Regione</span><span>15%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:15%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Rettrici di Università</span><span>28%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:28%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>CEO aziende Fortune 500 IT</span><span>11%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:11%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Magistratura</span><span>52%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:52%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="sdg-bridge" style="margin-top:1.5rem">
+            <div class="bridge-label">◆ Dati da Ricordare</div>
+            <div class="bridge-text">Emblematicamente, la Magistratura — che Nilde Iotti voleva aperta alle donne fin dal 1946 — è l'unico settore in cui la rappresentanza femminile ha superato la parità. Un risultato che arrivò con la legge del <strong>1963</strong>, 17 anni dopo la sua battaglia alla Costituente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL SDG 8 -->
+    <div class="sdg-panel" data-sdg="8">
+      <div class="sdg-panel-inner fade-up">
+        <div class="sdg-side">
+          <div class="sdg-badge"><span class="sdg-badge-num">8</span> Lavoro Dignitoso</div>
+          <div class="sdg-bridge">
+            <div class="bridge-label">◆ Il Legame Storico</div>
+            <div class="bridge-text">L'Articolo 37 della Costituzione, fortemente voluto dalle Costituenti, stabilisce che la donna lavoratrice ha gli stessi diritti e, a parità di lavoro, le stesse retribuzioni del lavoratore. L'Italia fu uno dei primi paesi al mondo a costituzionalizzare questa norma. Eppure, oltre 75 anni dopo, quel principio rimane parzialmente disatteso.</div>
+          </div>
+          <div class="sdg-today">
+            <h3>Le Sfide Oggi</h3>
+            <ul class="challenge-list">
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Precarietà giovanile</div>
+                  <div class="ch-desc">Il 28,6% dei lavoratori under 30 in Italia è impiegato con contratti a termine o part-time involontario (ISTAT 2024). Il tasso di NEET (giovani né occupati né in formazione) è al 18,7%.</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Tutela della maternità nei contratti moderni</div>
+                  <div class="ch-desc">Il 24% delle madri lavoratrici in Italia rinuncia al lavoro nei 5 anni successivi alla nascita del primo figlio (fonte: INAPP). Il divario occupazionale madre/padre è tra i più alti d'Europa.</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Automazione e intelligenza artificiale</div>
+                  <div class="ch-desc">Secondo OCSE 2024, il 35% dei lavori attualmente esistenti in Italia è ad alto rischio di automazione entro il 2035. La sfida è creare reti di sicurezza e percorsi di riqualificazione.</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="sdg-side">
+          <div class="data-viz-box">
+            <div class="dvb-title">Mercato del lavoro giovanile — Italia vs UE media 2024</div>
+            <div class="bar-chart">
+              <div class="bar-item">
+                <div class="bar-label"><span>Disoccupazione giovanile ITA</span><span>22,1%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:74%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Disoccupazione giovanile UE</span><span>14,5%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:48%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Tasso NEET ITA</span><span>18,7%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:62%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Tasso NEET UE media</span><span>11,2%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:37%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Lavori a rischio AI (2035)</span><span>35%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:35%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="sdg-bridge" style="margin-top:1.5rem">
+            <div class="bridge-label">◆ La Prospettiva Costituzionale</div>
+            <div class="bridge-text">L'Art. 4 della Costituzione recita: «La Repubblica riconosce a tutti i cittadini il diritto al lavoro.» Non è un dato acquisito: nei momenti di crisi tecnologica come quello attuale, quella promessa va rinnovata con politiche attive concrete, non con sola retorica.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL SDG 16 -->
+    <div class="sdg-panel" data-sdg="16">
+      <div class="sdg-panel-inner fade-up">
+        <div class="sdg-side">
+          <div class="sdg-badge"><span class="sdg-badge-num">16</span> Pace e Istituzioni</div>
+          <div class="sdg-bridge">
+            <div class="bridge-label">◆ Il Legame Storico</div>
+            <div class="bridge-text">La Costituzione nasce per garantire istituzioni democratiche stabili e trasparenti dopo il fascismo. Nilde Iotti incarnerà questo principio fino in fondo: nel 1979 diventa la prima donna a presiedere la Camera dei Deputati, carica che ricopre per 13 anni con rigore istituzionale riconosciuto da tutti gli schieramenti.</div>
+          </div>
+          <div class="sdg-today">
+            <h3>Le Sfide Oggi</h3>
+            <ul class="challenge-list">
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Democrazia nell'era digitale</div>
+                  <div class="ch-desc">Il 62% degli italiani ottiene informazioni politiche principalmente dai social media (Reuters Institute 2024). L'infosfera frammentata mina la formazione di un'opinione pubblica informata.</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Disinformazione e fake news</div>
+                  <div class="ch-desc">Nel 2023, Italy Media Monitor ha rilevato oltre 4.800 contenuti falsi virali di rilevanza politica sul territorio italiano. Il fact-checking sistematico raggiunge meno del 12% di chi ha visto la notizia falsa.</div>
+                </div>
+              </li>
+              <li class="challenge-item">
+                <div class="ch-marker"></div>
+                <div class="ch-content">
+                  <div class="ch-title">Open data e trasparenza amministrativa</div>
+                  <div class="ch-desc">L'Italia ha migliorato il suo indice di trasparenza amministrativa (Open Data Barometer), ma il 40% dei dati pubblici è ancora difficilmente accessibile ai cittadini in formato riutilizzabile.</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="sdg-side">
+          <div class="data-viz-box">
+            <div class="dvb-title">Indicatori di salute democratica — Italia 2024</div>
+            <div class="bar-chart">
+              <div class="bar-item">
+                <div class="bar-label"><span>Fiducia nelle istituzioni parlamentari</span><span>23%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:23%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Partecipazione elezioni europee 2024</span><span>49%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:49%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Literacy mediatica (autovalutazione)</span><span>41%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:41%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Dati pubblici in formato aperto</span><span>60%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:60%"></div></div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label"><span>Indice libertà di stampa (RSF/100)</span><span>73%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--w:73%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="sdg-bridge" style="margin-top:1.5rem">
+            <div class="bridge-label">◆ Una Riflessione Attuale</div>
+            <div class="bridge-text">Chi oggi difende la democrazia digitale — contro i deepfake, la polarizzazione algoritmica, la manipolazione delle elezioni — fa lo stesso lavoro che Nilde Iotti fece nel 1946: costruire un'architettura istituzionale che resista agli abusi del potere.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 4: CONCLUSIONE -->
+<section id="conclusione">
+  <div class="container">
+    <div class="concl-content fade-up">
+      <div class="concl-ornament">
+        <div class="orn-line"></div>
+        <div class="orn-diamond"></div>
+        <div class="orn-line"></div>
+      </div>
+      <div class="concl-quote">
+        «La Costituzione non è un documento del passato. È un progetto sempre aperto, un impegno che ogni generazione deve rinnovare con coraggio e coerenza.»
+      </div>
+      <div class="concl-attr">Nilde Iotti — Camera dei Deputati, 1985</div>
+      <p class="concl-text">
+        Il filo che lega il 1946 all'Agenda 2030 non è metaforico: è giuridico, politico, umano. Le stesse battaglie cambiano volto ad ogni generazione. La parità salariale oggi si chiama gender pay gap, ma è ancora l'Art. 37 di Nilde Iotti. La democrazia minacciata oggi si chiama disinformazione digitale, ma è ancora il problema che la Commissione dei 75 cercò di blindare con la Costituzione. Riconoscere questo filo è il primo passo per non lasciar cadere la promessa.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">
+    <strong>Elaborato Multimediale</strong> · L'Assemblea Costituente, Nilde Iotti e l'Agenda 2030<br>
+    Fonti: Archivio Storico della Camera dei Deputati · Rai Teche · ISTAT · Eurostat · OCSE · Reuters Institute Digital News Report · Open Data Barometer<br>
+    Immagini e materiali audiovisivi: Rai Cultura · Istituto Luce Cinecittà
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// ─── PROGRESS BAR ───
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('progress').style.width = progress + '%';
+});
+
+// ─── TIMELINE TOGGLE ───
+function toggleTimeline(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.tl-item').forEach(i => i.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+// Open first by default
+document.querySelectorAll('.tl-item')[0].classList.add('active');
+
+// ─── QUOTE CAROUSEL ───
+let currentQuote = 0;
+const slides = document.querySelectorAll('.quote-slide');
+const dots = document.querySelectorAll('.quote-dot');
+
+function goToQuote(n) {
+  slides[currentQuote].classList.remove('active');
+  dots[currentQuote].classList.remove('active');
+  currentQuote = n;
+  slides[currentQuote].classList.add('active');
+  dots[currentQuote].classList.add('active');
+}
+
+// Auto-advance quotes
+setInterval(() => {
+  goToQuote((currentQuote + 1) % slides.length);
+}, 5000);
+
+// ─── SDG TABS ───
+function switchSDG(num) {
+  document.querySelectorAll('.sdg-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.sdg-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.sdg-tab[data-sdg="${num}"]`).classList.add('active');
+  document.querySelector(`.sdg-panel[data-sdg="${num}"]`).classList.add('active');
+  animateBars(document.querySelector(`.sdg-panel[data-sdg="${num}"]`));
+}
+
+// ─── BAR CHART ANIMATION ───
+function animateBars(container) {
+  const bars = container.querySelectorAll('.bar-fill');
+  bars.forEach(b => {
+    b.classList.remove('animated');
+    setTimeout(() => b.classList.add('animated'), 50);
+  });
+}
+
+// Animate on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains('fade-up')) {
+        entry.target.classList.add('visible');
+      }
+      const bars = entry.target.querySelectorAll('.bar-fill');
+      bars.forEach(b => setTimeout(() => b.classList.add('animated'), 100));
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.querySelectorAll('.sdg-panel').forEach(el => observer.observe(el));
+
+// Animate visible panels on load
+setTimeout(() => {
+  animateBars(document.querySelector('.sdg-panel.active'));
+}, 500);
+
+// ─── MODAL ───
+const videoData = {
+  storia: {
+    title: '«Storia di Nilde» — Docu-film',
+    year: 'RAI · Regia: Caterina Taricano · 2018',
+    desc: 'Il docu-film ripercorre la vita di Nilde Iotti dall\'infanzia reggiana alla Presidenza della Camera, attraverso materiali d\'archivio inediti, testimonianze e ricostruzioni storiche. Un ritratto intimo di una figura che ha segnato la storia politica italiana del Novecento. Disponibile su RaiPlay e RAI Cultura.'
+  },
+  discorso: {
+    title: 'Discorso di Insediamento — Prima Presidente della Camera',
+    year: '20 giugno 1979 · Archivio Camera dei Deputati',
+    desc: 'Il discorso con cui Nilde Iotti si insedia come prima donna Presidente della Camera dei Deputati è un documento storico di rara intensità. Non celebra se stessa: celebra il percorso del movimento delle donne. Parla di responsabilità, di istituzioni come patrimonio comune. Il testo integrale è consultabile presso l\'Archivio Storico della Camera dei Deputati (archivio.camera.it).'
+  },
+  intervista: {
+    title: 'Intervista RAI — Ricordi della Costituente',
+    year: '1988 · Archivio RAI Teche',
+    desc: 'In questa intervista conservata nelle Teche RAI, Nilde Iotti racconta in prima persona i mesi dell\'Assemblea Costituente: i dibattiti nella Commissione dei 75, le mediazioni difficili sugli articoli riguardanti la famiglia, l\'emozione del voto finale del 22 dicembre 1947. Un documento di memoria viva. Consultabile tramite RAI Teche (teche.rai.it).'
+  }
+};
+
+function openModal(type) {
+  const d = videoData[type];
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-title">${d.title}</div>
+    <div class="modal-year">${d.year}</div>
+    <div class="modal-desc">${d.desc}</div>
+    <a href="#" class="modal-link" onclick="return false">→ Cerca nell'Archivio RAI / Camera dei Deputati</a>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ─── NAV ACTIVE STATE ───
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === `#${current}`
+      ? 'rgba(200,155,60,1)'
+      : 'rgba(245,240,232,0.7)';
+  });
+});
+</script>
+</body>
+</html>
